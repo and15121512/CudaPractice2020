@@ -67,9 +67,9 @@ int main() {
     // height and width are multiples of the block size (block is square),
 
     const int k_block_side_size = 16;
-    const int k_A_height = 256; // to change
-    const int k_A_width = 128; // to change
-    const int k_B_width = 384; // to change
+    const int k_A_height = 128; // to change
+    const int k_A_width = 384; // to change
+    const int k_B_width = 256; // to change
     const int k_B_height = k_A_width;
     const int k_C_height = k_A_height;
     const int k_C_width = k_B_width;
