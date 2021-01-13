@@ -1,0 +1,41 @@
+NAIVE:
+
+==8638== Profiling application: ./example
+==8638== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   82.59%  310.83us         1  310.83us  310.83us  310.83us  MatrixMul(float*, float*, float*, int)
+                   14.38%  54.115us         2  27.057us  19.201us  34.914us  [CUDA memcpy HtoD]
+                    3.04%  11.425us         1  11.425us  11.425us  11.425us  [CUDA memcpy DtoH]
+      API calls:   95.03%  299.40ms         3  99.798ms  3.8760us  299.39ms  cudaMalloc
+                    3.37%  10.615ms       776  13.678us     145ns  648.44us  cuDeviceGetAttribute
+                    0.98%  3.0735ms         8  384.19us  263.27us  436.65us  cuDeviceTotalMem
+                    0.31%  987.91us         8  123.49us  101.45us  147.23us  cuDeviceGetName
+                    0.21%  676.28us         3  225.43us  81.117us  453.22us  cudaMemcpy
+                    0.08%  247.46us         3  82.485us  5.0020us  229.47us  cudaFree
+                    0.01%  37.815us         1  37.815us  37.815us  37.815us  cudaLaunchKernel
+                    0.01%  20.317us         8  2.5390us  1.8060us  3.8740us  cuDeviceGetPCIBusId
+                    0.00%  5.5620us        16     347ns     174ns  1.4630us  cuDeviceGet
+                    0.00%  2.4790us         3     826ns     255ns  1.6920us  cuDeviceGetCount
+                    0.00%  2.1660us         8     270ns     175ns     389ns  cuDeviceGetUuid
+
+SHARED:
+
+==6182== Profiling application: ./shared
+==6182== Profiling result:
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+ GPU activities:   66.57%  131.30us         1  131.30us  131.30us  131.30us  matrixMul(float*, float*, float*, int)
+                   16.52%  32.578us         2  16.289us  14.017us  18.561us  [CUDA memcpy HtoD]
+                   15.74%  31.042us         1  31.042us  31.042us  31.042us  [CUDA memcpy DtoH]
+                    1.17%  2.3040us         1  2.3040us  2.3040us  2.3040us  transposeMatrix(float*, float*, int, int)
+      API calls:   94.90%  296.19ms         4  74.047ms  3.6270us  296.18ms  cudaMalloc
+                    3.37%  10.510ms       776  13.544us     138ns  642.69us  cuDeviceGetAttribute
+                    0.99%  3.1049ms         8  388.12us  262.10us  441.55us  cuDeviceTotalMem
+                    0.31%  981.27us         8  122.66us  100.80us  145.21us  cuDeviceGetName
+                    0.21%  645.63us         3  215.21us  59.313us  504.75us  cudaMemcpy
+                    0.20%  609.14us         4  152.28us  3.8030us  546.10us  cudaFree
+                    0.01%  44.588us         2  22.294us  9.1980us  35.390us  cudaLaunchKernel
+                    0.01%  20.468us         8  2.5580us  1.8780us  4.0830us  cuDeviceGetPCIBusId
+                    0.00%  5.2580us        16     328ns     148ns     923ns  cuDeviceGet
+                    0.00%  2.2440us         3     748ns     223ns  1.5940us  cuDeviceGetCount
+                    0.00%  2.0200us         8     252ns     150ns     418ns  cuDeviceGetUuid
+
